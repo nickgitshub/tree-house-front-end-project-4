@@ -1,3 +1,27 @@
-.grid__row {
-	color: green; 
+
+
+
+.grid__col{
+	
+	&--3{
+		background-color: purple; 
+	}
+	&--4{
+		background-color: lightblue;
+	}
+	&--5{
+		background-color: green;
+	}
+	&--6{
+		background-color: blue; 
+	}
+	&--7{
+		background-color: green; 
+	}
+	&--8{
+		background-color: orange; 
+	}
+	&--12{
+		background-color: aqua; 
+	}
 } 

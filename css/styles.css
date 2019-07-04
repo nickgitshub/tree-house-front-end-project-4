@@ -455,8 +455,23 @@ ul, ol {
   margin: 0;
 }
 
-.grid__row {
-  color: green;
+.grid__col {
+  padding: 2em;
+}
+.grid__col--3 {
+  background-color: purple;
+}
+.grid__col--4 {
+  background-color: lightblue;
+}
+.grid__col--6 {
+  background-color: blue;
+}
+.grid__col--7 {
+  background-color: red;
+}
+.grid__col--8 {
+  background-color: orange;
 }
 
 .grid__row {
