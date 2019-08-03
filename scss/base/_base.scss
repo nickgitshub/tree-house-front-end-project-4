@@ -1,27 +1,237 @@
 
+//Mixins
+
+@mixin button($bg-color: 'black'){
+	margin: 0.4em -.25em 0.4em -.25em;
+	border-radius: 4px; 
+	padding: .75em 0em .75em 0em;
+	align-items: center;
+	color: white; 
+	background-color: map-get($grid-colors, $bg-color);
+	@include mq('l'){
+		margin: 0em .25em 0em .25em;
+	}
+}
 
 
-.grid__col{
+@mixin btn-combo($btn-type){
+	@include button($btn-type);
+	text-transform: uppercase;
+	@include mq('l'){
+		padding-right: 2em;
+		padding-left: 2em; 
+		margin: 0em 1em 0em 1em;
+	}
+}
+
+
+
+@mixin flexing {
+	display: flex; 
+	flex-direction: column;
+}
+
+@mixin flexing-row{
+	@include flexing; 
+	@include mq('l'){
+		flex-direction: row; 
+		justify-content: center; 
+	}
+}
+
+@mixin mq($break) {
+	@if $break == 'l'{
+		@media(min-width: $break-l){
+			@content; 
+		}
+	}
+
+}
+
+
+//Variables
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+$font-family--primary   : 'Roboto Slab', serif;
+$font-family--secondary : 'Helvetica Neue', Helvetica, sans-serif; 
+
+$primary-color : #7FFFD4;
+
+$break-s  : 575px;
+$break-m  : 768px;
+$break-l  : 992px;
+
+
+//Maps
+
+$grid-colors: (
+	'color-3' : #BA55D3, 
+	'color-4' : #00FFFF,
+	'color-5' : #3CB371,
+	'color-6' : #4682B4,
+	'color-7' : #B22222,
+	'color-8' : #D2691E,
+	'color-12': #40E0D0,
+	'default' : #00BFFF,
+	'success' : #008000,
+	'error'   : #CD5C5C,
+	'warning' : #FF7F50,
+	'info'    : #663399,
+);
+
+
+
+
+//Base CSS
+
+
+*{
+	font-family: $font-family--primary;
+}
+
+a{
+	text-decoration: none; 
+}
+
+p,
+blockquote {
+	text-align: left; 
+}
+
+blockquote {
+	border-left: .35em solid $primary-color; 
+	border-radius: .3em; 
+	padding-left: 1em; 
+	font-style: italic;
+	font-size: 1.25em; 
+}
+
+.container{
+	@include flexing; 
+	max-width: 65%; 
+	margin: 2em 4em 2em 4em;
+ 	position: relative; 
+ 	text-align: center; 
+ 	width: 100%; 
+}
+
+.grid{
+
+	&__row{
+		justify-content: center; 
+		max-width: 1000px;
+	}
+
+	&__col{
+
+			@for $i from 3 through 12{
+				&--#{$i}.theme__colors{
+					@include button('color-#{$i}');
+					filter: brightness(95%);
+				}
+			}
+
+			&--6{
+				& .img--frame{
+					margin: .15em 0 1em 0;
+					padding: 1em;
+					border: .1em solid lightgrey;
+					width: 100%;
+				}
+			}
+
+			&--12{
+				@include flexing-row; 
+			}
+	} 
+}
+
+
+.headline{
+
+ 	&--primary{
+ 		text-align: left; 
+ 		padding: 0 1.1em 0 1.1em;
+ 		color: $primary-color;
+ 	}
+
+ 	&--secondary{
+ 		text-align: left; 
+ 		padding: 2em;
+ 	}
+ }
+
+
+.nav{
+	@include flexing-row;   
+
+	&__item{
+		@include button;
+		margin: 0em -.25em 0em -.25em;
+		& a{
+			color: $primary-color;
+		}
+		&:hover{
+			background-color: $primary-color;
+			& a{
+				color: white;
+			}
+		}
+
+		
+	}
+}
+
+.form{
+	@include flexing; 
+	margin: 1em 0 1em 0;
+
+	&__input{
+		border: none;
+		border-bottom: 5px solid $primary-color; 
+		border-radius: 4px; 
+		margin: .5em;
+		overflow: hidden; 
+	}
+
+	&__label--hidden{
+		border-width:0px;
+		border:none;
+
+	}
+
+	& .theme__colors{
+		
+	}
 	
-	&--3{
-		background-color: purple; 
+}
+
+.btn{
+	&--default{
+		@include btn-combo('default');
+
 	}
-	&--4{
-		background-color: lightblue;
+
+	&--success{
+		@include btn-combo('success'); 
 	}
-	&--5{
-		background-color: green;
+
+	&--error{
+		@include btn-combo('error'); 
 	}
-	&--6{
-		background-color: blue; 
+
+	&--warning{
+		@include btn-combo('warning'); 
 	}
-	&--7{
-		background-color: green; 
+
+	&--info{
+		@include btn-combo('info'); 
+		
 	}
-	&--8{
-		background-color: orange; 
-	}
-	&--12{
-		background-color: aqua; 
-	}
-} 
+
+}
+
+img {
+	align-self: center; 
+}
+
+

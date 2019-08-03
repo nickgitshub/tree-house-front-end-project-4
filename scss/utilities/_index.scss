@@ -1,7 +1,11 @@
 // **************************************
-// components/_index.scss
+// utilities/_index.scss
 // used to import individual components
 // **************************************
 
 @import 'variables',
-		'mixins'; 
+		'mixins',
+		'functions',
+		'links',
+		'images',
+		'nav';  
