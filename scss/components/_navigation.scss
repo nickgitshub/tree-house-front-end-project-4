@@ -1,0 +1,42 @@
+.nav{
+	@include flexing-row;   
+
+	&__item{
+		@include button;
+		margin: 0em -.25em 0em -.25em;
+		& a{
+			color: $primary-color;
+		}
+		&:hover{
+			background-color: $primary-color;
+			& a{
+				color: white;
+			}
+		}
+
+		
+	}
+}
+
+.container{
+	@include flexing; 
+	max-width: 65%; 
+	margin: 2em 4em 2em 4em;
+ 	position: relative; 
+ 	text-align: center; 
+ 	width: 100%; 
+}
+
+.headline{
+
+ 	&--primary{
+ 		text-align: left; 
+ 		padding: 0 1.1em 0 1.1em;
+ 		color: $primary-color;
+ 	}
+
+ 	&--secondary{
+ 		text-align: left; 
+ 		padding: 2em;
+ 	}
+ }

@@ -1,0 +1,28 @@
+//Variables
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+$font-family--primary   : 'Roboto Slab', serif;
+$font-family--secondary : 'Helvetica Neue', Helvetica, sans-serif; 
+
+$primary-color : #7FFFD4;
+
+$break-s  : 575px;
+$break-m  : 768px;
+$break-l  : 992px;
+
+
+//Maps
+
+$grid-colors: (
+	'color-3' : #BA55D3, 
+	'color-4' : #00FFFF,
+	'color-5' : #3CB371,
+	'color-6' : #4682B4,
+	'color-7' : #B22222,
+	'color-8' : #D2691E,
+	'color-12': #40E0D0,
+	'default' : #00BFFF,
+	'success' : #008000,
+	'error'   : #CD5C5C,
+	'warning' : #FF7F50,
+	'info'    : #663399,
+);

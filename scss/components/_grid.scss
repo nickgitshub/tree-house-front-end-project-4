@@ -66,3 +66,37 @@
     }
   }
 }
+
+//Added grid attributes 
+
+.grid{
+
+  &__row{
+    justify-content: center; 
+    max-width: 1000px;
+  }
+
+  &__col{
+
+      @for $i from 3 through 12{
+        &--#{$i}.theme__colors{
+          @include button('color-#{$i}');
+          filter: brightness(95%);
+        }
+      }
+
+      &--6{
+        & .img--frame{
+          margin: .15em 0 1em 0;
+          padding: 1em;
+          border: .1em solid lightgrey;
+          width: 100%;
+        }
+      }
+
+      &--12{
+        @include flexing-row; 
+      }
+  } 
+}
+

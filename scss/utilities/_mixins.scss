@@ -1,0 +1,57 @@
+
+//Mixins
+
+@mixin button($bg-color: 'black'){
+	margin: 0.4em -.25em 0.4em -.25em;
+	border-radius: 4px; 
+	padding: .75em 0em .75em 0em;
+	align-items: center;
+	color: white; 
+	background-color: map-get($grid-colors, $bg-color);
+	@include mq('m'){
+		margin: 0em .25em 0em .25em;
+	}
+}
+
+
+@mixin btn-combo($btn-type){
+	@include button($btn-type);
+	text-transform: uppercase;
+	@include mq('m'){
+		padding-right: 1em;
+		padding-left: 1em; 
+		// margin: 0em 1em 0em 1em;
+	}
+}
+
+@mixin flexing {
+	display: flex; 
+	flex-direction: column;
+}
+
+@mixin flexing-row{
+	@include flexing; 
+	@include mq('m'){
+		flex-direction: row; 
+		justify-content: center; 
+	}
+}
+
+@mixin mq($break) {
+	@if $break == 'm'{
+		@media(min-width: $break-m){
+			@content; 
+		}
+	}
+	@else if $break == 'l'{
+		@media(min-width: $break-l){
+			@content; 
+		}
+	}
+	@else if $break == 's'{
+		@media(min-width: $break-s){
+			@content; 
+		}
+	}
+
+}

@@ -1,0 +1,20 @@
+
+.form{
+	@include flexing; 
+	margin: 1em 0 1em 0;
+
+	&__input{
+		border: none;
+		border-bottom: 5px solid $primary-color; 
+		border-radius: 4px; 
+		margin: .5em;
+		overflow: hidden; 
+	}
+
+	&__label--hidden{
+		border-width:0px;
+		border:none;
+
+	}
+	
+}
