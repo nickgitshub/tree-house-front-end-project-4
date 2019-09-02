@@ -254,6 +254,7 @@ input,
 optgroup,
 select,
 textarea {
+  border-style: none; 
   font-family: sans-serif; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
@@ -464,7 +465,6 @@ template {
  * List styles
  */
 ul,ol {
-  list-style-type: none;
   padding: 0;
   margin: 0;
 }

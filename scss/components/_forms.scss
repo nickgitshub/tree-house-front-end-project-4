@@ -1,7 +1,7 @@
 
 .form{
 	@include flexing; 
-	margin: 1em 0 1em 0;
+	margin: 0 auto;
 
 	&__input{
 		border: none;
@@ -13,6 +13,7 @@
 	}
 
 	&__label--hidden{
+		margin-top: 1em;
 		border-width:0px;
 		border:none;
 
