@@ -884,6 +884,7 @@ blockquote {
   border-radius: 4px;
   margin: 0.5em;
   overflow: hidden;
+  outline: none;
 }
 .form__label--hidden {
   border-width: 0px;

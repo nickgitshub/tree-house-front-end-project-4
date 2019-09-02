@@ -38,7 +38,13 @@
 }
 
 @mixin mq($break) {
-	@if $break == 'm'{
+	@if $break == 's'{
+		@media(min-width: $break-s){
+			@content; 
+		}	
+		
+	}
+	@else if $break == 'm'{
 		@media(min-width: $break-m){
 			@content; 
 		}
@@ -48,10 +54,6 @@
 			@content; 
 		}
 	}
-	@else if $break == 's'{
-		@media(min-width: $break-s){
-			@content; 
-		}
-	}
+	
 
 }
